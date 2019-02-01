@@ -1,0 +1,51 @@
+---
+title: "Task07"
+author: "Elijah Boulton"
+date: "February 1, 2019"
+output: html_document
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r slr, echo=FALSE}
+library(ggplot2)
+# DATA
+trees = read.csv("SPRUCE.csv")
+
+# INPUTS
+inputPanel(
+  
+  
+  selectInput("ggp", "Choose plot type",
+      list(`plots` = c("ggp", "ggp&s"),
+           `regression` = c("ggpReg", "ggp&sReg")
+      )
+    )
+
+)
+
+renderPlot({
+  
+ g = ggplot(trees, aes(x = BHDiameter, y = Height)) + geom_point(aes(colour = BHDiameter))
+
+ gs = g + geom_line(aes(colour = BHDiameter))
+ 
+ gr =  g + geom_smooth(method = lm)
+ 
+ gsr = gs + geom_smooth(method = lm)
+  
+ if(input$ggp == "ggp") print(g)
+ 
+ if(input$ggp == "ggp&s")   print(gs)
+ 
+ if(input$ggp == "ggpReg")   print(gr)
+ 
+ if(input$ggp == "ggp&sReg")   print(gsr)
+ 
+   
+})
+```

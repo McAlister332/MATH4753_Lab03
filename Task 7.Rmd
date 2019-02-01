@@ -44,7 +44,7 @@ inputPanel(
 
 renderPlot({
   
- g = ggplot(fin.df, aes(x = RATIO, y = HEAT)) + geom_point() 
+ g = ggplot(spruce.df, aes(x = BHDiameter, y = Height)) + geom_point() 
 
  gh = g + geom_point(aes(col = HEAT)) 
  
