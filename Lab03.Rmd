@@ -140,10 +140,11 @@ TreePlot = ggplot(trees, aes(x = BHDiameter, y = Height)) +
 print(TreePlot)
 ```
 
+# Task 7
 
+Data plotted in an interactive shiny document
 
-
-
-
-
-
+![](ggp.png){width = 70%}
+![](ggps.png){width = 70%}
+![](ggpReg.png){width = 70%}
+![](ggpsReg.png){width = 70%}
